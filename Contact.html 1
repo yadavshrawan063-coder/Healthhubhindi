@@ -1,0 +1,14 @@
+<!DOCTYPE html><html lang="hi"><head><meta charset="UTF-8"><title>संपर्क करें</title>
+<style>body{font-family:Arial;max-width:600px;margin:auto;padding:20px}input,textarea{width:100%;padding:10px;margin:10px 0;border:1px solid #ccc;border-radius:5px}</style></head>
+<body>
+<a href="index.html">← होम</a>
+<h1>संपर्क करें</h1>
+<p>कोई सुझाव है? हमें मैसेज करें।</p>
+<form>
+  <input type="text" placeholder="आपका नाम" required>
+  <input type="email" placeholder="आपका ईमेल" required>
+  <textarea rows="5" placeholder="आपका संदेश"></textarea>
+  <button style="background:#0d6efd;color:#fff;padding:10px 20px;border:none;border-radius:5px">भेजें</button>
+</form>
+<p><b>Email:</b> support yadavshrawan063@gmail.com </p>
+</body></html>
