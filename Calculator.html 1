@@ -1,0 +1,19 @@
+<!DOCTYPE html><html lang="hi"><head><meta charset="UTF-8"><title>BMI कैलकुलेटर</title>
+<style>body{font-family:Arial;max-width:500px;margin:auto;padding:20px;text-align:center}input{padding:10px;width:80%;margin:10px;border:1px solid #ccc;border-radius:5px}button{background:#198754;color:#fff;padding:12px 25px;border:none;border-radius:8px}</style></head>
+<body>
+<a href="index.html">← होम</a>
+<h1>BMI कैलकुलेटर</h1>
+<input type="number" id="weight" placeholder="वजन kg में"><br>
+<input type="number" id="height" placeholder="लंबाई cm में"><br>
+<button onclick="calcBMI()">BMI निकालें</button>
+<h2 id="result"></h2>
+<script>
+function calcBMI(){
+  let w=document.getElementById('weight').value;
+  let h=document.getElementById('height').value/100;
+  let bmi=(w/(h*h)).toFixed(1);
+  let msg=bmi<18.5?"कम वजन":bmi<25?"सामान्य":bmi<30?"ज्यादा वजन":"मोटापा";
+  document.getElementById('result').innerHTML=`आपका BMI: ${bmi} <br> स्थिति: ${msg}`;
+}
+</script>
+</body></html>
