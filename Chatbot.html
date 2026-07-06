@@ -1,0 +1,22 @@
+<!DOCTYPE html><html lang="hi"><head><meta charset="UTF-8"><title>AI Health Assistant</title>
+<style>body{font-family:Arial;max-width:600px;margin:auto;padding:20px}#chatBox{height:400px;border:1px solid #ddd;background:#fff;padding:15px;overflow-y:auto;border-radius:10px;margin:15px 0}.user{text-align:right;color:#0d6efd}.ai{text-align:left;color:#198754}input{width:75%;padding:10px}button{width:20%;padding:10px;background:#0d6efd;color:#fff;border:none}</style></head>
+<body>
+<a href="index.html">← होम</a><h1>🤖 AI Health Assistant</h1>
+<div id="chatBox"></div>
+<input type="text" id="userInput" placeholder="सवाल पूछें...">
+<button onclick="sendMsg()">भेजें</button>
+<script>
+const API_KEY = "YAHAN_APNI_API_KEY_PASTE_KARO";
+async function sendMsg(){
+  let input=document.getElementById('userInput');let msg=input.value;if(msg=="")return;
+  document.getElementById('chatBox').innerHTML+=`<div class="user">आप: ${msg}</div>`;input.value="";
+  const res=await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEY}`,{
+    method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({contents:[{parts:[{text:`तुम हेल्थ एक्सपर्ट हो। हिंदी में जवाब दो। सवाल: ${msg}`}]}]})
+  });
+  const data=await res.json();let reply=data.candidates[0].content.parts[0].text;
+  document.getElementById('chatBox').innerHTML+=`<div class="ai">AI: ${reply}</div>`;
+  document.getElementById('chatBox').scrollTop=99999;
+}
+</script>
+</body></html>
